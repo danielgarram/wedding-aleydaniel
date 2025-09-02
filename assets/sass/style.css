@@ -12280,7 +12280,7 @@ wpo-hero-slider-s4
 
 /*11.2 wpo-offer-banner-section*/
 .wpo-offer-banner-section {
-    background: url(../images/offer.jpg) no-repeat center center;
+    /*background: url(../images/offer.jpg) no-repeat center center;*/
     height: 600px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -12316,7 +12316,7 @@ wpo-hero-slider-s4
 
 @media (max-width: 575px) {
     .wpo-offer-banner-section {
-        height: 400px;
+        height: 600px;
     }
 }
 

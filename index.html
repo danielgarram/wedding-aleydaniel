@@ -26,6 +26,10 @@
     <link href="assets/css/jquery-ui.css" rel="stylesheet">
     <link href="assets/sass/style.css" rel="stylesheet">
     
+    <!-- GSAP Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
     <!-- Music Control Styles -->
     <style>
         .music-control {
@@ -225,8 +229,8 @@
 
     <!-- Background Music -->
     <audio id="backgroundMusic" loop>
-        <source src="assets/audio/wedding-music.mp3" type="audio/mpeg">
-        <source src="assets/audio/wedding-music.ogg" type="audio/ogg">
+        <source src="assets/audio/wedding-music-1.mp3" type="audio/mpeg">
+        <source src="assets/audio/wedding-music-1.ogg" type="audio/ogg">
         Your browser does not support the audio element.
     </audio>
 
@@ -271,7 +275,7 @@
         </div>
         <!-- end preloader -->
         <!-- Start header -->
-        <header id="header">
+        <header id="header" class="d-none">
             <div class="wpo-site-header wpo-header-style-1" id="sticky-header">
                 <nav class="navigation navbar navbar-expand-lg navbar-light">
                     <div class="container-fluid">
@@ -289,39 +293,60 @@
         </header>
         <!-- end of header -->
         <!-- start of hero -->
-        <section class="wpo-hero-slider">
-            <h2 class="hidden">some</h2>
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="slide-inner slide-bg-image" data-background="assets/images/aleydaniel/slider-1.jpg">
-                        </div> <!-- end slide-inner -->
-                    </div> <!-- end swiper-slide -->
-
-                    <div class="swiper-slide">
-                        <div class="slide-inner slide-bg-image" data-background="assets/images/aleydaniel/slider-2.jpg">
-                        </div> <!-- end slide-inner -->
-                    </div> <!-- end swiper-slide -->
-
-                    <div class="swiper-slide">
-                        <div class="slide-inner slide-bg-image" data-background="assets/images/aleydaniel/slider-3.jpg">
-                        </div> <!-- end slide-inner -->
-                    </div> <!-- end swiper-slide -->
-
-                    <div class="swiper-slide">
-                        <div class="slide-inner slide-bg-image" data-background="assets/images/aleydaniel/slider-4.jpg">
-                        </div> <!-- end slide-inner -->
-                    </div> <!-- end swiper-slide -->
+        <section class="hero-circle-section">
+            <div class="hero-container">
+                <div class="hero-image-container">
+                    <img src="assets/images/alechoiced/ISRAEL QUINTERO FOTOGRAFO- 85_websize.jpg" alt="Alejandra & Daniel" class="hero-main-image">
                 </div>
-                <!-- end swiper-wrapper -->
-
-                <!-- swipper controls -->
-                <div class="swiper-pagination"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title">Alejandra & Daniel</h1>
+                    <p class="hero-date">Noviembre 22, 2025</p>
+                </div>
+            </div>
+        </section>
+        <!-- end of hero -->
+                 <!-- start of hero -->
+        <section class="static-hero-s2">
+            <div class="hero-container">
+                <div class="hero-inner">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <div class="col-xl-6 col-lg-6 col-12">
+                                <div class="static-hero-right">
+                                    <div class="static-hero-img">
+                                        <div class="static-hero-img-inner wow zoomIn" data-wow-duration="1500ms">
+                                            <img src="assets/images/alechoiced/ISRAEL QUINTERO FOTOGRAFO- 42_websize.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="static-hero-shape"><img src="assets/images/slider/frame.png" alt=""></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-12">
+                                <div class="wpo-static-hero-inner">
+                                    <div class="shape-1 wow fadeInUp" data-wow-duration="900ms"><img src="assets/images/slider/shape5.png" alt=""></div>
+                                    <div class="slide-title wow fadeInUp" data-wow-duration="1100ms">
+                                        <h2>Alejandra & Daniel</h2>
+                                    </div>
+                                    <div class="slide-text wow fadeInUp" data-wow-duration="1300ms">
+                                        <p>Acompáñanos a nuestro felices para siempre</p>
+                                    </div>
+                                    <div class="wpo-wedding-date wow fadeInUp" data-wow-duration="1500ms">
+                                        <div class="clock-grids">
+                                            <div id="clock" data-date="2025/11/22 00:00"></div>
+                                        </div>
+                                    </div>
+                                    <div class="shape-2 wow fadeInUp" data-wow-duration="1700ms"><img src="assets/images/slider/shape6.png" alt=""></div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         <!-- end of hero slider -->
         <!-- start wpo-wedding-date -->
-        <section class="wpo-wedding-date pt-3">
+        <section class="wpo-wedding-date pt-3 d-none">
             <div class="container">
                 <h2 class="wow fadeInUp" data-wow-duration="1000ms">
                     <span class="shape-1"><img src="assets/images/slider/shape.png" alt=""></span>
@@ -340,7 +365,7 @@
         </section>
         <!-- end wpo-wedding-date -->
         <!-- start couple-section -->
-        <section class="wpo-couple-section section-padding" id="couple">
+        <section class="wpo-couple-section section-padding d-none" id="couple">
             <div class="container">
                 <div class="couple-area clearfix">
                     <div class="row align-items-center">
@@ -582,7 +607,163 @@
         <!-- start of wpo-about-section -->
         <section class="wpo-about-section-s2 section-padding">
             <div class="container">
-                <div class="wpo-about-wrap">
+                <!-- Timeline Section -->
+                <div class="love-timeline-section mb-5">
+                    <div class="wpo-section-title text-center mb-5">
+                        <h4>Un amor que se transformó en una boda</h4>
+                        <h2>Un viaje lleno de amor, risas y momentos inolvidables</h2>
+                    </div>
+                    <!-- Galería horizontal inspirada en CodePen de @pehaa -->
+                    <div class="horizontal-gallery" id="love-gallery">
+                        <div class="hg-viewport">
+                            <div class="hg-track">
+                                <figure class="hg-card depth-3">
+                                    <img src="assets/images/alechoiced/special-5.jpg" alt="Alejandra y Daniel sonriendo">
+                                </figure>
+                                <figure class="hg-card depth-2">
+                                    <img src="assets/images/alechoiced/special-0.jpg" alt="Momentos especiales">
+                                </figure>
+                                <figure class="hg-card depth-1">
+                                    <img src="assets/images/alechoiced/special-1.jpeg" alt="Primer encuentro">
+                                </figure>
+                                <figure class="hg-card depth-3">
+                                    <img src="assets/images/alechoiced/special-3.jpeg" alt="Oficialmente novios">
+                                </figure>
+                                <figure class="hg-card depth-2">
+                                    <img src="assets/images/alechoiced/special-4.jpg" alt="¡Nos casamos!">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <style>
+                        /* Galería horizontal - estilos locales a este bloque */
+                        #love-gallery { --gap: 20px; --radius: 16px; --accent: #D4B0A5; }
+                        #love-gallery .hg-viewport {
+                            overflow-x: auto;
+                            overflow-y: hidden;
+                            padding-bottom: 10px;
+                            scroll-snap-type: x mandatory;
+                            -webkit-overflow-scrolling: touch;
+                            perspective: 1000px;
+                        }
+                        #love-gallery .hg-track {
+                            display: flex;
+                            gap: var(--gap);
+                            width: max-content;
+                            padding: 0 4vw;
+                        }
+                        #love-gallery .hg-card {
+                            flex: 0 0 80vw;
+                            max-width: 900px;
+                            aspect-ratio: 16 / 10;
+                            border-radius: var(--radius);
+                            overflow: hidden;
+                            position: relative;
+                            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+                            scroll-snap-align: center;
+                            background: #f7f5f4;
+                            transform-style: preserve-3d;
+                        }
+                        #love-gallery .hg-card img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            display: block;
+                            transition: transform .6s ease;
+                        }
+                        #love-gallery .hg-card:hover img { transform: scale(1.05); }
+                        #love-gallery .hg-card.depth-1 { transform: translateZ(-25px) scale(1.02); }
+                        #love-gallery .hg-card.depth-2 { transform: translateZ(-12px) scale(1.01); }
+                        #love-gallery .hg-card.depth-3 { transform: translateZ(0); }
+                        #love-gallery .hg-caption {
+                            position: absolute;
+                            left: 14px;
+                            bottom: 14px;
+                            padding: 8px 12px;
+                            background: rgba(255,255,255,0.85);
+                            border: 1px solid rgba(212,176,165,0.45);
+                            border-radius: 12px;
+                            font-weight: 600;
+                            color: #6c6f73;
+                            backdrop-filter: blur(6px);
+                        }
+                        #love-gallery .hg-hint {
+                            text-align: center;
+                            margin-top: 14px;
+                            color: #9a8f8a;
+                            font-size: .95rem;
+                        }
+                        @media (min-width: 992px) { #love-gallery .hg-card { flex-basis: 60vw; } }
+                    </style>
+                    <div class="timeline d-none">
+                        <div class="timeline-item left wow fadeInLeft" data-wow-duration="1000ms">
+                            <div class="timeline-content">
+                                <div class="timeline-image">
+                                    <img src="assets/images/alechoiced/WhatsApp Image 2025-09-07 at 5.50.01 PM (2).jpeg" alt="Primer encuentro">
+                                </div>
+                                <div class="timeline-text">
+                                    <h3>2018</h3>
+                                    <h4>Nuestro primer encuentro</h4>
+                                    <p>El destino nos unió en el momento perfecto. Desde el primer momento supimos que algo especial estaba comenzando.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item right wow fadeInRight" data-wow-duration="1200ms">
+                            <div class="timeline-content">
+                                <div class="timeline-image">
+                                    <img src="assets/images/alechoiced/WhatsApp Image 2025-09-07 at 5.50.01 PM (8).jpeg" alt="Primera cita">
+                                </div>
+                                <div class="timeline-text">
+                                    <h3>2019</h3>
+                                    <h4>Nuestra primera cita</h4>
+                                    <p>Una cena que se convirtió en horas de conversación. Descubrimos que teníamos mucho más en común de lo que imaginábamos.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item left wow fadeInLeft" data-wow-duration="1400ms">
+                            <div class="timeline-content">
+                                <div class="timeline-image">
+                                    <img src="assets/images/alechoiced/WhatsApp Image 2025-09-07 at 5.50.01 PM (15).jpeg" alt="Oficialmente novios">
+                                </div>
+                                <div class="timeline-text">
+                                    <h3>2020</h3>
+                                    <h4>Oficialmente novios</h4>
+                                    <p>Decidimos hacer oficial nuestro amor. A pesar de los desafíos del mundo, nuestro amor se fortaleció cada día más.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item right wow fadeInRight" data-wow-duration="1600ms">
+                            <div class="timeline-content">
+                                <div class="timeline-image">
+                                    <img src="assets/images/alechoiced/WhatsApp Image 2025-09-07 at 6.48.51 PM.jpeg" alt="La propuesta">
+                                </div>
+                                <div class="timeline-text">
+                                    <h3>2024</h3>
+                                    <h4>La propuesta</h4>
+                                    <p>El momento más mágico de nuestras vidas. Con el corazón lleno de amor, Daniel le pidió a Alejandra que fuera su esposa para siempre.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item left wow fadeInLeft" data-wow-duration="1800ms">
+                            <div class="timeline-content">
+                                <div class="timeline-image">
+                                    <img src="assets/images/alechoiced/WhatsApp Image 2025-09-07 at 6.53.19 PM.jpeg" alt="Nuestra boda">
+                                </div>
+                                <div class="timeline-text">
+                                    <h3>2025</h3>
+                                    <h4>¡Nos casamos!</h4>
+                                    <p>El día que tanto hemos esperado ha llegado. Comenzamos una nueva aventura juntos como esposos, rodeados del amor de nuestra familia y amigos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Timeline Section -->
+                <div class="wpo-about-wrap d-none">
                     <div class="row">
                         <div class="col-lg-6 col-md-12 col-12">
                             <div class="wpo-about-item">
@@ -715,19 +896,6 @@
             </div> <!-- end container -->
         </section>
         <!-- end wpo-offer-banner-section-->
-        <!-- start wpo-instagram-section -->
-        <section class="wpo-instagram-section pb-0 section-padding">
-            <div class="container">
-                <div class="wpo-section-title">
-                    <h4>Nuestros momentos</h4>
-                </div>
-                <div class="instagram-wrap" style="display: flex; justify-content: center;">
-                    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DD2LESuvu49/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/DD2LESuvu49/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DD2LESuvu49/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Saturno (@astroenapolo)</a></p></div></blockquote>
-                    <script async src="//www.instagram.com/embed.js"></script>
-                </div>
-            </div>
-        </section>
-        <!-- end wpo-instagram-section-->
         <!-- start of wpo-contact-section -->
         <section class="wpo-contact-section-s3 section-padding" id="rsvp">
             <div class="container">
@@ -753,6 +921,19 @@
             </div>
         </section>
         <!-- end of wpo-contact-section -->
+        <!-- start wpo-instagram-section -->
+        <section class="wpo-instagram-section pb-0 section-padding">
+            <div class="container">
+                <div class="wpo-section-title">
+                    <h4>Nuestros momentos</h4>
+                </div>
+                <div class="instagram-wrap" style="display: flex; justify-content: center;">
+                    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DD2LESuvu49/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/DD2LESuvu49/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DD2LESuvu49/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Saturno (@astroenapolo)</a></p></div></blockquote>
+                    <script async src="//www.instagram.com/embed.js"></script>
+                </div>
+            </div>
+        </section>
+        <!-- end wpo-instagram-section-->
         <!-- start wpo-story-section -->
         <section class="wpo-story-section section-padding d-none" id="story">
             <div class="container-fluid">
@@ -799,11 +980,11 @@
         </section>
         <!-- end story-section -->
         <!-- start wpo-portfolio-section -->
-        <section class="wpo-portfolio-section-s2 pb-0 section-padding d-none" id="gallery">
+        <section class="wpo-portfolio-section-s2 pb-0 section-padding" id="gallery">
             <div class="container">
                 <div class="wpo-section-title">
-                    <h4>Sweet Memories</h4>
-                    <h2>Our Captured Moments</h2>
+                    <h4>Y vivieron...</h4>
+                    <h2>Felices por siempre!</h2>
                 </div>
                 <div class="sortable-gallery">
                     <div class="gallery-filters"></div>
@@ -812,9 +993,9 @@
                             <div class="portfolio-grids gallery-container clearfix">
                                 <div class="grid">
                                     <div class="img-holder">
-                                        <a href="assets/images/portfolio/10.jpg" class="fancybox"
+                                        <a href="assets/images/alechoiced/ISRAEL QUINTERO FOTOGRAFO- 106_websize (1).jpg" class="fancybox"
                                             data-fancybox-group="gall-1">
-                                            <img src="assets/images/portfolio/10.jpg" alt class="img img-responsive">
+                                            <img src="assets/images/alechoiced/ISRAEL QUINTERO FOTOGRAFO- 106_websize (1).jpg" alt class="img img-responsive">
                                             <div class="hover-content">
                                                 <i class="ti-plus"></i>
                                             </div>
@@ -823,9 +1004,9 @@
                                 </div>
                                 <div class="grid">
                                     <div class="img-holder">
-                                        <a href="assets/images/portfolio/5.jpg" class="fancybox"
+                                        <a href="assets/images/alechoiced/ISRAEL QUINTERO FOTOGRAFO- 10_websize.jpg" class="fancybox"
                                             data-fancybox-group="gall-1">
-                                            <img src="assets/images/portfolio/5.jpg" alt class="img img-responsive">
+                                            <img src="assets/images/alechoiced/ISRAEL QUINTERO FOTOGRAFO- 10_websize.jpg" alt class="img img-responsive">
                                             <div class="hover-content">
                                                 <i class="ti-plus"></i>
                                             </div>
@@ -834,9 +1015,9 @@
                                 </div>
                                 <div class="grid">
                                     <div class="img-holder">
-                                        <a href="assets/images/portfolio/6.jpg" class="fancybox"
+                                        <a href="assets/images/alechoiced/ISRAEL QUINTERO FOTOGRAFO- 115_websize.jpg" class="fancybox"
                                             data-fancybox-group="gall-1">
-                                            <img src="assets/images/portfolio/6.jpg" alt class="img img-responsive">
+                                            <img src="assets/images/alechoiced/ISRAEL QUINTERO FOTOGRAFO- 115_websize.jpg" alt class="img img-responsive">
                                             <div class="hover-content">
                                                 <i class="ti-plus"></i>
                                             </div>
@@ -845,9 +1026,9 @@
                                 </div>
                                 <div class="grid">
                                     <div class="img-holder">
-                                        <a href="assets/images/portfolio/7.jpg" class="fancybox"
+                                        <a href="assets/images/alechoiced/WhatsApp Image 2025-09-07 at 6.48.51 PM.jpeg" class="fancybox"
                                             data-fancybox-group="gall-1">
-                                            <img src="assets/images/portfolio/7.jpg" alt class="img img-responsive">
+                                            <img src="assets/images/alechoiced/WhatsApp Image 2025-09-07 at 6.48.51 PM.jpeg" alt class="img img-responsive">
                                             <div class="hover-content">
                                                 <i class="ti-plus"></i>
                                             </div>
@@ -856,9 +1037,9 @@
                                 </div>
                                 <div class="grid">
                                     <div class="img-holder">
-                                        <a href="assets/images/portfolio/8.jpg" class="fancybox"
+                                        <a href="assets/images/alechoiced/ISRAEL QUINTERO FOTOGRAFO- 144_websize.jpg" class="fancybox"
                                             data-fancybox-group="gall-1">
-                                            <img src="assets/images/portfolio/8.jpg" alt class="img img-responsive">
+                                            <img src="assets/images/alechoiced/ISRAEL QUINTERO FOTOGRAFO- 144_websize.jpg" alt class="img img-responsive">
                                             <div class="hover-content">
                                                 <i class="ti-plus"></i>
                                             </div>
@@ -867,20 +1048,9 @@
                                 </div>
                                 <div class="grid">
                                     <div class="img-holder">
-                                        <a href="assets/images/portfolio/9.jpg" class="fancybox"
+                                        <a href="assets/images/alechoiced/ISRAEL QUINTERO FOTOGRAFO- 141_websize.jpg" class="fancybox"
                                             data-fancybox-group="gall-1">
-                                            <img src="assets/images/portfolio/9.jpg" alt class="img img-responsive">
-                                            <div class="hover-content">
-                                                <i class="ti-plus"></i>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="grid">
-                                    <div class="img-holder">
-                                        <a href="assets/images/portfolio/11.jpg" class="fancybox"
-                                            data-fancybox-group="gall-1">
-                                            <img src="assets/images/portfolio/11.jpg" alt class="img img-responsive">
+                                            <img src="assets/images/alechoiced/ISRAEL QUINTERO FOTOGRAFO- 141_websize.jpg" alt class="img img-responsive">
                                             <div class="hover-content">
                                                 <i class="ti-plus"></i>
                                             </div>
@@ -896,7 +1066,7 @@
         </section>
         <!-- end wpo-portfolio-section -->
         <!-- wpo-site-footer start -->
-        <div class="wpo-site-footer text-center">
+        <div class="wpo-site-footer text-center d-none">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -929,6 +1099,17 @@
     
     <!-- Music Control Script -->
     <script>
+
+        $(document).ready(function () {
+            const audios = [
+                'assets/audio/wedding-music-2.mp3',
+                'assets/audio/wedding-music-1.mp3',
+                'assets/audio/wedding-music-3.mp3',
+            ]
+            let currentAudioIndex = Math.floor(Math.random() * audios.length);
+            const audio = document.getElementById('backgroundMusic');
+            audio.src = audios[currentAudioIndex];
+        });
         document.addEventListener('DOMContentLoaded', function() {
             const audio = document.getElementById('backgroundMusic');
             const musicToggle = document.getElementById('musicToggle');
@@ -1023,6 +1204,32 @@
                     startMusic();
                 }
             });
+        });
+
+        // GSAP ScrollTrigger - Hero zoom out and text reveal on scroll
+        gsap.registerPlugin(ScrollTrigger);
+
+        function initHeroAnimations() {
+            const heroScroll = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".hero-circle-section",
+                    start: "top top",
+                    end: "+=150%",
+                    scrub: 1.5,
+                    pin: true,
+                    pinSpacing: true,
+                    anticipatePin: 1
+                }
+            });
+
+            heroScroll
+                .fromTo(".hero-main-image", { scale: 1.5 }, { scale: 1, ease: "none" }, 0)
+                .fromTo(".hero-title", { opacity: 0, y: 40 }, { opacity: 1, y: 0, ease: "power2.out" }, 0.1)
+                .fromTo(".hero-date", { opacity: 0, y: 30 }, { opacity: 1, y: 0, ease: "power2.out" }, 0.2);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initHeroAnimations();
         });
     </script>
 </body>

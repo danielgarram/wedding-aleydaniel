@@ -20589,3 +20589,61 @@ wpo-hero-slider-s4
 .color12 .wpo-blog-single-section .tag-share-s2 .tag a {
     background: none !important;
 }
+
+.love-gallery { --gap: 20px; --radius: 16px; --accent: #D4B0A5; }
+.love-gallery .hg-viewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    perspective: 1000px;
+}
+.love-gallery .hg-track {
+    display: flex;
+    gap: var(--gap);
+    width: max-content;
+    padding: 0 4vw;
+}
+.love-gallery .hg-card {
+    flex: 0 0 80vw;
+    max-width: 900px;
+    aspect-ratio: 16 / 10;
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    scroll-snap-align: center;
+    background: #f7f5f4;
+    transform-style: preserve-3d;
+}
+.love-gallery .hg-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .6s ease;
+}
+.love-gallery .hg-card:hover img { transform: scale(1.05); }
+.love-gallery .hg-card.depth-1 { transform: translateZ(-25px) scale(1.02); }
+.love-gallery .hg-card.depth-2 { transform: translateZ(-12px) scale(1.01); }
+.love-gallery .hg-card.depth-3 { transform: translateZ(0); }
+.love-gallery .hg-caption {
+    position: absolute;
+    left: 14px;
+    bottom: 14px;
+    padding: 8px 12px;
+    background: rgba(255,255,255,0.85);
+    border: 1px solid rgba(212,176,165,0.45);
+    border-radius: 12px;
+    font-weight: 600;
+    color: #6c6f73;
+    backdrop-filter: blur(6px);
+}
+.love-gallery .hg-hint {
+    text-align: center;
+    margin-top: 14px;
+    color: #9a8f8a;
+    font-size: .95rem;
+}
+@media (min-width: 992px) { .love-gallery .hg-card { flex-basis: 60vw; } }

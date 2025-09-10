@@ -7974,13 +7974,11 @@ wpo-hero-slider-s4
 
 .wpo-pricing-section .wpo-pricing-wrap .wpo-pricing-item .wpo-pricing-top .wpo-pricing-text h4 {
     font-size: 18px;
-    text-transform: uppercase;
     font-weight: 400;
     font-family: "Jost", sans-serif;
 }
 
 .wpo-pricing-section .wpo-pricing-wrap .wpo-pricing-item .wpo-pricing-top .wpo-pricing-text h2 {
-    font-size: 40px;
     color: #939580;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -10023,12 +10021,6 @@ wpo-hero-slider-s4
     opacity: 1;
 }
 
-.wpo-portfolio-section-s2 .portfolio-grids .grid .img-holder:hover:before,
-.wpo-portfolio-section-s5 .portfolio-grids .grid .img-holder:hover:before {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-}
 
 /* 6.6 wpo-contact-section-s3 */
 .wpo-contact-section-s3 .wpo-contact-section-wrapper,
@@ -10507,7 +10499,7 @@ wpo-hero-slider-s4
 
 .wpo-event-section .wpo-event-wrap .wpo-event-item .wpo-event-img .title h2 {
     padding: 15px 20px;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.5);
     font-weight: 400;
     font-size: 35px;
     line-height: 50px;
